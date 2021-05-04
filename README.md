@@ -1,5 +1,5 @@
 # ansible-task15
-Task Description: 
+Task Description:
 🔅Create an ansible role myapache to configure Httpd WebServer.
 
 🔅Create another ansible role myloadbalancer to configure HAProxy LB.
