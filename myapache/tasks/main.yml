@@ -1,0 +1,18 @@
+---
+# tasks file for myapache
+- name: Installing the package... 
+  package:
+          name: "{{ name_of_package }}"
+          state: present 
+
+- name: Copying the webpages...
+  copy:
+          src: "/etc/ansible/roles/myapache/files/indexpage.php"
+          dest: "/var/www/html/"
+  notify: restart service 
+
+- name: Starting the service...
+  service:
+          name: "{{ name_of_package }}"
+          state: started 
+
