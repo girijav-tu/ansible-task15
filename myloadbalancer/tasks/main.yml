@@ -1,0 +1,20 @@
+---
+# tasks file for myloadbalancer
+- name: Installing the package...
+  package:
+          name: "{{ software_name}}"
+          state: present 
+
+- name: Configuring the "{{ software_name }}" server
+  template:
+          src: "/etc/ansible/roles/myloadbalancer/templates/haproxy.cfg.j2"
+          dest: "/etc/haproxy/haproxy.cfg"
+  notify: restart loadbalancer 
+
+- name: Starting the service.. 
+  service:
+          name: "{{ software_name }}"
+          state: started  
+
+
+
